@@ -17,8 +17,17 @@ export default {
 
 <style>
 @font-face {
-  font-family: Noto;
-  src: url("./assets/思源宋体.otf");
+  font-family: plantc;
+  src: url("./assets/plantc.ttf");
+}
+@keyframes enter {
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

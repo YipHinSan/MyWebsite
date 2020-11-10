@@ -27,15 +27,7 @@ export default {
 </script>
 
 <style scoped>
-@keyframes enter {
-    from{
-        opacity: 0;
-        transform: translateY(-20px);
-    }to{
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
+
 .container{
     animation: enter .5s ease-in-out;
     width: 800px;
@@ -54,7 +46,6 @@ export default {
     color:  #24292b;
     
     font-family: Helvetica;
-    font-family: Noto;
     font-size: 25px;
     letter-spacing: 5px;
     line-height: 133.32px;
@@ -62,12 +53,16 @@ export default {
     border-radius: 5px;
 
     transition: all .2s ease-in-out;
+    cursor: pointer;
 }
 .boxes:hover{
     color: white;
     background-color: rgb(207, 87, 93);
     transform: translateY(-3px);
     box-shadow: 0 2px 10px 5px black ;
+}
+.box1,.box3,.box4{
+    cursor:default;
 }
 .box2{
     grid-column-start: 2;
