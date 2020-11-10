@@ -24,8 +24,12 @@ export default {
 </script>
 
 <style scoped>
-h1{
-  color:white
+.about{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 
