@@ -21,7 +21,7 @@ const routes = [
   {
     path:'/python',
     name:'Python',
-    component: ()=> import('../views/Python.vue')
+    component: () => import('../views/Python.vue')
   }
 ]
 
