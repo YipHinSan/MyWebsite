@@ -18,7 +18,7 @@ export default {
     },
     methods:{
         turn:function(){
-            this.$router.push({path:'about'})
+            this.$router.push({path:'index'})
         }
     }
 }

@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: Noto;
+  src: url("./assets/思源宋体.otf");
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
