@@ -44,9 +44,8 @@ export default {
 .boxes{
     background-color:  #e5e9ee;
     color:  #24292b;
-    
-    font-family: Helvetica;
     font-size: 25px;
+    font-family: "SYST";
     letter-spacing: 5px;
     line-height: 133.32px;
 

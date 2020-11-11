@@ -17,9 +17,10 @@ export default {
 
 <style>
 @font-face {
-  font-family: plantc;
-  src: url("./assets/plantc.ttf");
+  font-family: "SYST";
+  src: url("./assets/SourceHanSerifSC-Bold.ttf");
 }
+
 @keyframes enter {
     from{
         opacity: 0;
@@ -30,7 +31,7 @@ export default {
     }
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif,Tahoma,"Heiti SC","Microsoft YaHei","WenQuanYi Micro Hei","PingFang SC","Hiragino Sans GB";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -65,6 +65,7 @@ p{
     letter-spacing: 10px;
     font-size: 40px;
     line-height: 55px;
+    font-family: "SYST";
 }
 span{
     transition: all 0.05s ease-in-out;
