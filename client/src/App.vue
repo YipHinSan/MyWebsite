@@ -16,11 +16,18 @@ export default {
 </script>
 
 <style>
+<<<<<<< HEAD
 @font-face {
   font-family: "SYST";
   src: url("./assets/SourceHanSerifSC-Bold.ttf");
 }
 
+=======
+/* @font-face {
+  font-family: plantc;
+  src: url("./assets/plantc.ttf");
+} */
+>>>>>>> 5033591cfe7f0c9f01d222412379c21239cd53a0
 @keyframes enter {
     from{
         opacity: 0;
