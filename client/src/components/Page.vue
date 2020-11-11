@@ -4,27 +4,50 @@
         <div class="left"><list>前言</list></div>
         <div class="right">
             <div class="titlecontainer"></div>
-            <div class="articlecontainer"></div>
+            <div class="articlecontainer" v-html="doc"></div>
         </div>
     </div>
 </template>
 
 <script>
 import list from './child/list'
+import axios from 'axios'
+
+axios.get('/getarticle').then(res=>{
+    let data=res.data;
+    console.log(data);
+    let doc=document.querySelector('.articlecontainer');
+    doc.innerHTML=data;
+})
+
 export default {
     name:'Page',
     components:{
         list
     },
+    data:function(){
+        return{
+        }
+    },
     methods:{
         gohome:function(){
-            this.$router.push({path:'index'});
+            this.$router.push('/index');
         }
     }
 }
 </script>
 
 <style scoped>
+li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .rootcontainer{
     width: 95vw;
     height: 90vh;
@@ -58,11 +81,14 @@ export default {
 }
 .articlecontainer{
     background-color: white;
-    width: 100%;
+    width: 90%;
     height: 87%;
     position: absolute;
     top: 13%;
     border-radius: 15px;
+    text-align: start;
+    overflow-y: scroll;
+    padding: 0 5% 0 5%;
 }
 .home{
     width: 15%;
@@ -83,6 +109,7 @@ export default {
     user-select: none;
     cursor: pointer;
     transition: all .2s ease-in-out;
+    overflow: hidden;
 }
 .home:hover{
     transform: translateY(-3px);
