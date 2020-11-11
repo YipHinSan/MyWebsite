@@ -1,5 +1,9 @@
 const express=require('express');
+const { connect } = require('http2');
 const path=require('path');
+
+//数据库连接
+require('./mg_model/connect');
 
 //静态资源路径
 let public_path=path.join(__dirname,'..','client','dist');

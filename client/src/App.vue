@@ -16,10 +16,10 @@ export default {
 </script>
 
 <style>
-@font-face {
+/* @font-face {
   font-family: plantc;
   src: url("./assets/plantc.ttf");
-}
+} */
 @keyframes enter {
     from{
         opacity: 0;
