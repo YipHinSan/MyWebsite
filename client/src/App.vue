@@ -30,6 +30,29 @@ export default {
         transform: translateY(0px);
     }
 }
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+	width: 5px;
+	height: 5px;
+  background-color: #ffffff00;
+}
+ 
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+	background-color: none;
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color:  rgb(207, 87, 93);
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif,Tahoma,"Heiti SC","Microsoft YaHei","WenQuanYi Micro Hei","PingFang SC","Hiragino Sans GB";
   -webkit-font-smoothing: antialiased;

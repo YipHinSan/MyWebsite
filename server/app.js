@@ -1,14 +1,10 @@
 const express=require('express');
 const { connect } = require('http2');
 const path=require('path');
-const cheerio=require('cheerio');
-const fs=require('fs');
-const { promisify } = require('util');
 
-const readFile=promisify(fs.readFile);
+const {PythonSet,HtmlcssSet,JavascriptSet,GenerationSet}=require('./mg_model/schema');
 
-// const $=cheerio.load('<h1>hi</h1>');
-
+const router=require('./router/index');
 
 //数据库连接
 require('./mg_model/connect');
@@ -22,16 +18,7 @@ let app=express();
 //设置静态资源路径
 app.use(express.static(public_path));
 
-app.get('/getarticle',(req,res)=>{
-    async function run(){
-        let text= await readFile('./documentation/1.html','UTF-8');
-        let $=cheerio.load(text,{decodeEntities:false});
-        console.log($('.article').html());
-        res.send($('.article').html());
-    }
-    run();
-})
-
+app.use('/',router);
 
 
 //监听端口

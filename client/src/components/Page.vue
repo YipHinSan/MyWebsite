@@ -1,10 +1,10 @@
 <template>
-    <div class="rootcontainer">
+    <div class="rootcontainer" >
         <div class="home" @click="gohome"><div>HOME</div></div>
-        <div class="left"><list>前言</list></div>
+        <div class="left"><list v-for="(item,index) in indexlist" :key="index" @click.native="getarticle(index+1)">{{item.title}}</list></div>
         <div class="right">
-            <div class="titlecontainer"></div>
-            <div class="articlecontainer" v-html="doc"></div>
+            <div class="titlecontainer" ><h1>{{title}}</h1></div>
+            <div class="articlecontainer" ><div class="text" v-html="article"></div></div>
         </div>
     </div>
 </template>
@@ -13,28 +13,63 @@
 import list from './child/list'
 import axios from 'axios'
 
-axios.get('/getarticle').then(res=>{
-    let data=res.data;
-    console.log(data);
-    let doc=document.querySelector('.articlecontainer');
-    doc.innerHTML=data;
-})
 
 export default {
     name:'Page',
     components:{
         list
     },
+    props:['docsname'],
     data:function(){
         return{
+            num:10,
+            indexlist:[],
+            title:'',
+            article:'',
         }
     },
     methods:{
         gohome:function(){
             this.$router.push('/index');
+        },
+        // load:function(){
+        //     axios.get(this.docsname)
+        //         .then(res=>{
+        //             let data=res.data;
+        //             this.indexlist=data;
+        //             // this.article=data.article;
+        //         });
+        //     this.isget=!this.isget;
+        // },
+        init:function(){
+            axios.get(this.docsname).then(res=>{
+                let data=res.data;
+                this.indexlist=data;
+            });
+        },
+        getarticle:function(index){
+            axios.get(this.docsname+'?id='+index)
+                .then(res=>{
+                    let data=res.data;
+                    this.article=data.article;
+                    this.title=data.title;
+                })
+        }
+    },
+    watch:{
+        "$route":{
+            handler(route){
+                const that=this;
+                if(route.name=='python'){
+                    that.init();
+                }
+            },
+            deep:true
         }
     }
+    
 }
+
 </script>
 
 <style scoped>
@@ -73,22 +108,33 @@ ul{
     left: 20%;
     top: 2.5%;
 }
+
 .titlecontainer{
     background-color: white;
-    width: 100%;
+    width: 92%;
     height: 10%;
     border-radius: 15px;
+    font-size: 25px;
+    line-height: 25px;
+    text-align: start;
+    padding: 0 4% 0 4%;
+
+    display: flex;
+    align-items: center;
+}
+h1{
+    font-size: 25px;
 }
 .articlecontainer{
     background-color: white;
-    width: 90%;
+    width: 96%;
     height: 87%;
     position: absolute;
     top: 13%;
     border-radius: 15px;
     text-align: start;
-    overflow-y: scroll;
-    padding: 0 5% 0 5%;
+    padding: 0 0 0 4%;
+    overflow: hidden;
 }
 .home{
     width: 15%;
@@ -114,5 +160,12 @@ ul{
 .home:hover{
     transform: translateY(-3px);
     box-shadow: 0 2px 10px 2px black ;
+}
+.text{
+    width: 97%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 3%;
 }
 </style>

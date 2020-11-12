@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Page></Page>
+        <Page docsname="python" ></Page>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
     name:'python',
     components:{
         Page
-    }
+    },
 }
 </script>
 
