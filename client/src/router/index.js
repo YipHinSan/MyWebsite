@@ -22,6 +22,21 @@ const routes = [
     path:'/python',
     name:'Python',
     component: () => import('../views/Python.vue')
+  },
+  {
+    path:'/htmlcss',
+    name:'Htmlcss',
+    component: () => import('../views/Htmlcss.vue')
+  },
+  {
+    path:'/javascript',
+    name:'Js',
+    component: () => import('../views/Js.vue')
+  },
+  {
+    path:'/generation',
+    name:'Generation',
+    component: () => import('../views/Generation.vue')
   }
 ]
 
