@@ -41,7 +41,7 @@ export default {
         //         });
         //     this.isget=!this.isget;
         // },
-        init:function(){
+        init(){
             axios.get(this.docsname).then(res=>{
                 let data=res.data;
                 this.indexlist=data;
