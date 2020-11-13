@@ -1,7 +1,7 @@
 <template>
     <div class="rootcontainer" >
         <div class="home" @click="gohome"><div>HOME</div></div>
-        <div class="left"><list v-for="(item,index) in indexlist" :key="index" @click.native="getarticle(index+1)">{{item.title}}</list></div>
+        <div class="left"><list v-for="(item,index) in indexlist" :key="index" @click.native="getarticle(index+1)" :class="{select:isselect[index]}" >{{item.title}}</list></div>
         <div class="right">
             <div class="titlecontainer" ><h1>{{title}}</h1></div>
             <div class="articlecontainer" ><div class="text" v-html="article"></div></div>
@@ -26,25 +26,34 @@ export default {
             indexlist:[],
             title:'',
             article:'',
+            isget:true,
+            isselect:[]
         }
+    },
+    created(){
+        this.init();
     },
     methods:{
         gohome:function(){
             this.$router.push('/index');
         },
-        // load:function(){
-        //     axios.get(this.docsname)
-        //         .then(res=>{
-        //             let data=res.data;
-        //             this.indexlist=data;
-        //             // this.article=data.article;
-        //         });
-        //     this.isget=!this.isget;
-        // },
-        init(){
+        load:function(){
+            axios.get(this.docsname)
+                .then(res=>{
+                    let data=res.data;
+                    this.indexlist=data;
+                    // this.article=data.article;
+                });
+            this.isget=!this.isget;
+        },
+        init:function(){
             axios.get(this.docsname).then(res=>{
                 let data=res.data;
                 this.indexlist=data;
+                for(let index in this.indexlist){
+                    this.isselect[index]=false;
+                }
+                this.getarticle(1);
             });
         },
         getarticle:function(index){
@@ -53,20 +62,17 @@ export default {
                     let data=res.data;
                     this.article=data.article;
                     this.title=data.title;
-                })
+                });
+            for(let i in this.isselect){
+                this.isselect[i]=false;
+                if (i==index-1){
+                    this.isselect[i]=true;
+                }
+            }
+            
         }
     },
-    watch:{
-        "$route":{
-            handler(route){
-                const that=this;
-                if(route.name=='python'){
-                    that.init();
-                }
-            },
-            deep:true
-        }
-    }
+    
     
 }
 
@@ -167,5 +173,9 @@ h1{
     overflow-y: scroll;
     overflow-x: hidden;
     padding-right: 3%;
+}
+.select{
+    background-color: rgb(145, 70, 73);
+    color: white;
 }
 </style>

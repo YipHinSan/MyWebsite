@@ -15,7 +15,7 @@ router.get('/:id',(req,res)=>{
     let index=req.query.id;
 
     if(index){
-        PythonSet.findOne({index:index}).then(async data=>{
+        GenerationSet.findOne({index:index}).then(async data=>{
             if (data){
                 console.log(data);
                 let title=data.title;
@@ -26,7 +26,7 @@ router.get('/:id',(req,res)=>{
             }
         })
     }else{
-        PythonSet.find().then(data=>{
+        GenerationSet.find().then(data=>{
             res.send(data);
         });
     }

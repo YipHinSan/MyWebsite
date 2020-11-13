@@ -50,7 +50,7 @@ export default {
 ::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
-	background-color:  rgb(207, 87, 93);
+	background-color:  rgb(145, 70, 73);
 }
 
 #app {

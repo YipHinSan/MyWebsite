@@ -15,8 +15,8 @@ router.get('/:id',(req,res)=>{
     let index=req.query.id;
 
     if(index){
-        PythonSet.findOne({index:index}).then(async data=>{
-            if (data){
+        HtmlcssSet.findOne({index:index}).then(async data=>{
+            if(data){
                 console.log(data);
                 let title=data.title;
                 let text= await readFile(data.articlelink,'UTF-8');
@@ -24,9 +24,10 @@ router.get('/:id',(req,res)=>{
                 let article=$('.article').html();
                 res.send({title,article});
             }
+                
         })
     }else{
-        PythonSet.find().then(data=>{
+        HtmlcssSet.find().then(data=>{
             res.send(data);
         });
     }

@@ -8,6 +8,7 @@ const router=require('./router/index');
 
 //数据库连接
 require('./mg_model/connect');
+require('./mg_model/create');
 
 //静态资源路径
 let public_path=path.join(__dirname,'..','client','dist');
