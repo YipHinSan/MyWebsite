@@ -89,7 +89,7 @@ for (let i in pythonList){
     let fileindex=filename.split('.')[0];
     let filepath=path.join(pythonDir,filename);
 
-    // console.log(filename,fileindex,filepath);
+    console.log(filename,fileindex,filepath);
     
     PythonSet.findOne({index:fileindex})
     .then(async data=>{

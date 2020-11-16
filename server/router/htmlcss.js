@@ -27,7 +27,8 @@ router.get('/:id',(req,res)=>{
                 
         })
     }else{
-        HtmlcssSet.find().then(data=>{
+        HtmlcssSet.find().sort({index:1}).then(data=>{
+            if(data)
             res.send(data);
         });
     }

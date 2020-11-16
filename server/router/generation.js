@@ -26,7 +26,8 @@ router.get('/:id',(req,res)=>{
             }
         })
     }else{
-        GenerationSet.find().then(data=>{
+        GenerationSet.find().sort({index:1}).then(data=>{
+            if(data)
             res.send(data);
         });
     }
