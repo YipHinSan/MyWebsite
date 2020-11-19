@@ -178,4 +178,21 @@ h1{
     background-color: rgb(145, 70, 73);
     color: white;
 }
+.article{
+    background: black;
+}
+.text hr{
+    background-color: #8e97a1;
+    height: 1px;
+    border: 0;
+}
+.codespan{
+    background-color: black;
+}
+.text>>> img{
+    width: 40vw;
+}
+.text>>> p,span,div{
+    letter-spacing: 1px;
+}
 </style>

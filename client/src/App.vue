@@ -78,5 +78,21 @@ body{
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+hr{
+    background-color: #8e97a1;
+    height: 1px;
+    border: 0;
+}
+.codespan{
+    background-color: #914649;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+}
 </style>
